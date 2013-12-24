@@ -1,0 +1,94 @@
+=begin
+  Examples:
+  
+  # Create Examples
+  
+  # create a teacher
+  t = Teacher.new(first_name: 'rahul', last_name: 'garg', email: 'rahul@gmail.com')
+  t.save
+  
+  # count of teachers
+  Teacher.count
+  
+  # create in one line
+  t = Teacher.create(first_name: 'some', last_name: 'thing', email: 'some@gmail.com')
+  
+  
+  
+  # Read and Find examples
+  
+  # find first record by email
+  t = Teacher.where(email: 'rahul_garg@gmail.com').first
+
+  # first record of the table
+   t  = Teacher.first
+
+  # last record of the table
+   t  = Teacher.last
+
+  
+
+  # find by id
+  t = Teacher.find(id)
+  e.g. Teacher.find(3)
+  
+  
+  # fetch all teachers
+  teachers = Teacher.all
+  
+ 
+  # fetch all teachers with order created_at desc 
+  teachers = Teacher.order('created_at desc')
+  
+  teachers = Teacher.limit(2)
+  teachers = Teacher.limit(2).order('created_at desc')  
+  
+  
+  # Update Examples
+  
+  # udpate example using "save"
+  teacher = Teacher.first
+  
+  teacher.email = "new_email@gmail.com"
+  teacher.save 
+  
+  teacher.email = "another_email@gmail.com"
+  teacher.email_was # => "new_email@gmail.com"
+  teacher.email # => "another_email@gmail.com"  
+  teacher.save
+
+
+  # update example using "update_attribute"
+  teacher = Teacher.last
+  teacher.update_attribute(:email, 'something@gmail.com')
+
+  # update example using 'update_attributes'
+  teacher.update_attributes(email: 'somethingelse@gmail.com', first_name: 'soemthing_else')
+  
+  
+  
+  # add additional fields to teachers teable:
+  # 1) generate a migration
+  # 2) run the migration (test both up and down)
+  
+  
+  # update the whole table for a specific field
+  Teacher.update_all(age: 40)
+   
+  # update the whole table for multiple fields
+  Teacher.update_all(age: 40, gender: 'male')
+
+  
+  # Destroy examples
+  
+  t = Teacher.first
+  t.destroy  # destroys a single object
+
+
+  # destroys all the records of the table
+  Teacher.destroy_all
+  
+  
+=end
+
+
