@@ -1,0 +1,18 @@
+%h1 Teachers
+
+= link_to "Create New Teacher", new_teacher_path
+
+.author    
+  %table
+    %tr
+      %th First Name
+      %th lastname
+      %th Email
+      %th age
+      %th gender
+      %th edit
+
+    - @teachers.each do |teacher|
+      = render partial: 'teacher_row', locals: {teacher: teacher}
+
+
