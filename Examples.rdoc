@@ -88,7 +88,43 @@
   # destroys all the records of the table
   Teacher.destroy_all
   
+
+
+  # validations
+  
+  t = Teacher.new
+  
+  t.save # => false
+  t.errors # => complete error object
+  t.errors.full_messages # => array of complete error messages
+
+
+  # only validate but do not try to save
+  t.valid? # => if returns false, i.e. there are errros... 
+                and if returns true, i.e. all validations are correct and there are no errors.
+                
+                
+
+
   
 =end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

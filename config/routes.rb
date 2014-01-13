@@ -1,4 +1,16 @@
 School::Application.routes.draw do
+  
+  get "users/signup", as: :signup
+  post "users/signup"
+  get "users/signin", as: :signin
+  post "users/signin"
+  get "users/logout", as: :logout
+  
+  resources :teachers do 
+    resources :tasks
+    resource :locker
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

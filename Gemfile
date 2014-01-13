@@ -33,8 +33,12 @@ group :doc do
 end
 
 gem 'therubyracer'
+gem 'thin'
 
+gem 'haml'
+gem 'haml-rails'
 
+# gem 'html2haml', group: :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
@@ -46,4 +50,4 @@ gem 'therubyracer'
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
