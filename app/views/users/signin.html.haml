@@ -1,0 +1,13 @@
+%h1 Signin to your account
+= form_for :user, :html => {:autocomplete => "off"}, url: signin_url do |f|
+  %div
+    %strong Email
+    %br/
+    = f.text_field :email
+  %div
+    %strong Password
+    %br/
+    = f.password_field :password
+  = f.submit "Login Now"
+  or
+  = link_to "Create New Account", signup_url
