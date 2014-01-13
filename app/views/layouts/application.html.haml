@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %title School App
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+
+%body
+  = image_tag 'test.jpg'
+  
+  .top_header
+    - if current_user
+      = "Welcome #{current_user.name.titleize}."
+      = link_to "logout", logout_url
+
+  - flash.each do |name, msg|
+    = content_tag :div, msg, class: name
+  
+  = yield
+
