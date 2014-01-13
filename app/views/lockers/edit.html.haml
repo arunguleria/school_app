@@ -1,0 +1,14 @@
+%h1 Edit Locker
+= form_for @locker, :url => teacher_locker_path(@teacher, @locker), :method => :put do |f|
+  = raw @locker.errors.full_messages.join("<br />") 
+  %strong lockernumber:
+  %br/
+  = f.text_field :locker_number
+  %br/
+  %strong Compartment:
+  %br/
+  = f.text_field :compartment
+  %br/
+  = f.submit "Save this Locker"
+  or
+  = link_to "Cancel", teacher_locker_path(@teacher)
