@@ -1,0 +1,14 @@
+%h1 Locker information
+%table
+  %tr
+    %th lockernumber
+    %th compartment
+  %tr
+    %td
+      = @locker.locker_number
+    %td
+      = @locker.compartment
+%hr/
+= link_to "Edit", edit_teacher_locker_url(@teacher)
+= link_to "delete", teacher_locker_url(@teacher), method: :delete, data: {confirm: "Are you sure to destroy this record? "}
+= link_to "cancel", teacher_path(@teacher)
