@@ -1,0 +1,42 @@
+= form_for @teacher do |f|
+  
+  = raw @teacher.errors.full_messages.join("<br/>")
+  
+  %table
+    
+    %tr
+      %td First Name
+      %td= f.text_field :first_name
+      
+    %tr
+      %td Last Name
+      %td= f.text_field :last_name
+      
+    %tr
+      %td Email
+      %td= f.text_field :email
+      
+    %tr
+      %td Age
+      %td= f.text_field :age
+      
+
+    %tr
+      %td Gender
+      %td
+        = f.radio_button(:gender, "M", :checked => true)
+        = f.label(:gender_male, "M")
+        = f.radio_button(:gender, "f")
+        = f.label(:gender_female, "f")
+
+    %tr
+      %td
+        - if @teacher.new_record?
+          = f.submit "Create New Teacher"
+        - else
+          = f.submit "Save Changes"
+      %td= link_to "cancel", teachers_path
+      
+
+
+
