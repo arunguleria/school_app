@@ -1,0 +1,16 @@
+= form_for @task, :url => teacher_tasks_path(@teacher, @task), :method => :post do |f|
+  = raw @task.errors.full_messages.join("<br />")
+  %strong Title:
+  %br/
+  = f.text_field :title
+  %br/
+  %strong Description:
+  %br/
+  = f.text_area :description
+  %br/
+  %strong priority:
+  = f.select :priority, Task::PRIORITIES
+  %br/
+  = f.submit "Save this article"
+  or
+  = link_to "Cancel", teacher_tasks_path(@teacher)
