@@ -1,0 +1,22 @@
+%h1 SignUp for a New Account
+= form_for @user, url: signup_url do |f|
+  = raw @user.errors.full_messages.join("<br/>")
+  %div
+    %strong Name
+    %br/
+    = f.text_field :name
+  %div
+    %strong Email
+    %br/
+    = f.text_field :email
+  %div
+    %strong Password
+    %br/
+    = f.password_field :password
+  %div
+    %strong Password Confirmation
+    %br/
+    = f.password_field :password_confirmation
+  = f.submit "Signup"
+  or
+  = link_to "Login to your account", signin_url
