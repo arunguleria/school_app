@@ -1,0 +1,20 @@
+%h1 Locker
+%br
+= link_to "Create New Locker", new_teacher_locker_path(@teacher)
+.author 
+  %table
+    %tr
+      %th lockernumber
+      %th compartment
+      %th edit
+   
+    - @locker.each do |locker|
+      %tr
+        %td=  @locker.locker_number
+        %td= @locker.compartment
+        %td= link_to "Show", teacher_locker_url(@teacher, locker)
+      
+       
+    
+
+
