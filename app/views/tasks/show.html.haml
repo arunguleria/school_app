@@ -1,0 +1,18 @@
+%h1 Task information
+%table
+  %tr
+    %th title 
+    %th description 
+    %th priority 
+    
+  %tr
+    %td= @task.title 
+    %td= @task.description 
+    %td=  @task.priority 
+ 
+%hr/
+= link_to "Edit", edit_teacher_task_url(@teacher, @task) 
+= link_to "delete", teacher_task_url(@teacher, @task), method: :delete, data: {confirm: "Are you sure to destroy this record? "}
+ 
+= link_to "view all tasks", teacher_tasks_url 
+= link_to "Teacher detail", teacher_url(@teacher)
