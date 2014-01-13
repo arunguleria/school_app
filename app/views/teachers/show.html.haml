@@ -1,0 +1,22 @@
+%h1 Teaher information
+%table
+  %tr
+    %th firstname
+    %th lastname
+    %th email
+    %th age
+    %th gender
+
+  %tr
+    %td= @teacher.first_name 
+    %td= @teacher.last_name 
+    %td=  @teacher.email 
+    %td=  @teacher.age 
+    %td= @teacher.gender 
+ 
+%hr/
+= link_to "Edit", edit_teacher_url(@teacher) 
+= link_to "delete", teacher_url(@teacher), method: :delete, data: {confirm: "Are you sure to destroy this record? "} 
+= link_to "view task", teacher_tasks_url(@teacher) 
+= link_to "view locker", teacher_locker_url(@teacher) 
+= link_to "view all teacher", teachers_url 
