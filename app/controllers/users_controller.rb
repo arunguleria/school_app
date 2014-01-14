@@ -28,7 +28,8 @@ class UsersController < ApplicationController
       end
     end
   end
-
+  
+  
   def signin
     if request.post?
       @user = User.authenticate(user_params)
