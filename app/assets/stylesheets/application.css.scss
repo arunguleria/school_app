@@ -9,14 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require bootstrap_and_overrides 
+ *= require_tree . 
  */
- 
- 
-body{
-  padding: 20px;
-  background-color: #efefef;
-} 
 
 
 .author{
@@ -25,15 +20,16 @@ body{
   margin-bottom: 10px;
 }
 
- 
-.alert{
-  color: red;
-  border: 1px solid red;
-  padding: 10px;
+
+#main{
+  margin-top: 50px;
 }
 
-.notice{
-  color: green;
-  border: 1px solid green;
-  padding: 10px;
+
+form{
+  background-color: #fff;
+  border: 10px solid #f7f7f7;
+  border-radius: 6px;
+  padding: 20px;
+  
 }

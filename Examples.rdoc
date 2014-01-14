@@ -104,6 +104,20 @@
                 and if returns true, i.e. all validations are correct and there are no errors.
                 
                 
+                
+                t.photos
+t = Teacher.first
+ t.photos << Photo.new(filename: "my_photo.jpeg", file_type: "JPEG")
+ Photo.count 
+ p = Photo.first
+ p.teacher
+ p.photogrphable
+ p.photographable.is_a?(Teacher) 
+ s.photos << Photo.new(filename: "some.png", file_type: "PNG")
+  p.photographable
+p = Photo.last
+p.photographable
+
 
 
   

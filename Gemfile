@@ -33,6 +33,14 @@ group :doc do
 end
 
 gem 'therubyracer'
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+
+# gem 'simple_form'  ... NOTE:- this works well for BS2, for BS3 installing the gem gem 'simple_form', github: 'zlx/simple_form_bootstrap3'
+
+gem 'simple_form', github: 'zlx/simple_form_bootstrap3'
+
+
 gem 'thin'
 
 gem 'haml'

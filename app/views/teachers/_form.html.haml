@@ -1,42 +1,13 @@
-= form_for @teacher do |f|
+= simple_form_for @teacher do |f|
+ 
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :email
+  = f.input :age
+  = f.input :gender, as: :radio_buttons, collection: [["Male", "M"], ["Female", "F"]]
   
-  = raw @teacher.errors.full_messages.join("<br/>")
-  
-  %table
-    
-    %tr
-      %td First Name
-      %td= f.text_field :first_name
-      
-    %tr
-      %td Last Name
-      %td= f.text_field :last_name
-      
-    %tr
-      %td Email
-      %td= f.text_field :email
-      
-    %tr
-      %td Age
-      %td= f.text_field :age
-      
-
-    %tr
-      %td Gender
-      %td
-        = f.radio_button(:gender, "M", :checked => true)
-        = f.label(:gender_male, "M")
-        = f.radio_button(:gender, "f")
-        = f.label(:gender_female, "f")
-
-    %tr
-      %td
-        - if @teacher.new_record?
-          = f.submit "Create New Teacher"
-        - else
-          = f.submit "Save Changes"
-      %td= link_to "cancel", teachers_path
-      
-
-
-
+  .form-actions
+    = f.submit (@teacher.new_record? ? "Create Teacher" : "Save Changes"), class: 'btn btn-success'  
+    or
+    = link_to "Cancel", teachers_path, class: 'btn btn-default'
+ 

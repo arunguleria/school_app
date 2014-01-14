@@ -1,8 +1,8 @@
 %h1 Locker
 %br
-= link_to "Create New Locker", new_teacher_locker_path(@teacher)
+= link_to "Create New Locker", new_teacher_locker_path(@teacher),class: 'btn btn-primary'
 .author 
-  %table
+  %table.table.table-striped
     %tr
       %th lockernumber
       %th compartment
@@ -12,7 +12,7 @@
       %tr
         %td=  @locker.locker_number
         %td= @locker.compartment
-        %td= link_to "Show", teacher_locker_url(@teacher, locker)
+        %td= link_to "Show", teacher_locker_url(@teacher, locker), class: 'btn btn-default'
       
        
     

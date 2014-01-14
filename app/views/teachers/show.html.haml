@@ -1,5 +1,5 @@
 %h1 Teaher information
-%table
+%table.table.table-striped
   %tr
     %th firstname
     %th lastname
@@ -15,8 +15,8 @@
     %td= @teacher.gender 
  
 %hr/
-= link_to "Edit", edit_teacher_url(@teacher) 
-= link_to "delete", teacher_url(@teacher), method: :delete, data: {confirm: "Are you sure to destroy this record? "} 
-= link_to "view task", teacher_tasks_url(@teacher) 
-= link_to "view locker", teacher_locker_url(@teacher) 
-= link_to "view all teacher", teachers_url 
+= link_to "Edit", edit_teacher_url(@teacher), class: 'btn btn-default' 
+= link_to "delete", teacher_url(@teacher), method: :delete, data: {confirm: "Are you sure to destroy this record? "}, class: 'btn btn-danger' 
+= link_to "view task", teacher_tasks_url(@teacher), class: 'btn btn-info' 
+= link_to "view locker", teacher_locker_url(@teacher), class: 'btn btn-info'
+= link_to "view all teacher", teachers_url, class: 'btn btn-info' 

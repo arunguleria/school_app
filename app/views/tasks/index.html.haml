@@ -1,9 +1,9 @@
 %h1 Tasks
 
-= link_to "Create New Task", new_teacher_task_path(@teacher)
+= link_to "Create New Task", new_teacher_task_path(@teacher), class: 'btn btn-primary'
 
 .author
-  %table
+  %table.table.table-striped
     %tr
       %th title
       %th description
@@ -15,7 +15,7 @@
         %td= task.title
         %td= task.description
         %td= task.priority
-        %td= link_to "Show", teacher_task_url(@teacher, task)
+        %td= link_to "Show", teacher_task_url(@teacher, task), class: 'btn btn-default btn-mini'
         
       
-= link_to "View Teacher", teacher_url(@teacher)
+= link_to "View Teacher", teacher_url(@teacher), class: 'btn btn-info'

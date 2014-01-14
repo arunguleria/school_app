@@ -1,5 +1,5 @@
 %h1 Locker information
-%table
+%table.table.table-striped
   %tr
     %th lockernumber
     %th compartment
@@ -9,6 +9,6 @@
     %td
       = @locker.compartment
 %hr/
-= link_to "Edit", edit_teacher_locker_url(@teacher)
-= link_to "delete", teacher_locker_url(@teacher), method: :delete, data: {confirm: "Are you sure to destroy this record? "}
-= link_to "cancel", teacher_path(@teacher)
+= link_to "Edit", edit_teacher_locker_url(@teacher), class: 'btn btn-primary'
+= link_to "delete", teacher_locker_url(@teacher), method: :delete, data: {confirm: "Are you sure to destroy this record? "}, class: 'btn btn-danger'
+= link_to "cancel", teacher_path(@teacher), class: 'btn btn-default'

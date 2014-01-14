@@ -1,18 +1,8 @@
 %h1 Edit Task
-= form_for @task, :url => teacher_task_path(@teacher, @task), :method => :put do |f|
-  = raw @task.errors.full_messages.join("<br />")
-  %div
-    %strong Title:
-    %br/
-    = f.text_field :title
-  %div
-    %strong Description:
-    %br/
-    = f.text_area :description
-  %div
-    %strong priority:
-    %br/
-    = f.select :priority, Task::PRIORITIES
-  = f.submit "Save this article"
+= simple_form_for @task, :url => teacher_task_path(@teacher, @task), :method => :put do |f|
+  = f.input :title
+  = f.input :description, as: :text
+  = f.select :priority, Task::PRIORITIES
+  = f.submit "Save this article", class: 'btn btn-success'
   or
-  = link_to "Cancel", teacher_tasks_path(@teacher)
+  = link_to "Cancel", teacher_tasks_path(@teacher), class: 'btn btn-default'

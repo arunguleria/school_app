@@ -1,16 +1,7 @@
-= form_for @task, :url => teacher_tasks_path(@teacher, @task), :method => :post do |f|
-  = raw @task.errors.full_messages.join("<br />")
-  %strong Title:
-  %br/
-  = f.text_field :title
-  %br/
-  %strong Description:
-  %br/
-  = f.text_area :description
-  %br/
-  %strong priority:
-  = f.select :priority, Task::PRIORITIES
-  %br/
-  = f.submit "Save this article"
+= simple_form_for @task, :url => teacher_tasks_path(@teacher, @task), :method => :post do |f|
+  = f.input :title
+  = f.input :description, as: :text
+  = f.input :priority, Task::PRIORITIES, as: :select
+  = f.submit "Save this article", class: 'btn btn-success'
   or
-  = link_to "Cancel", teacher_tasks_path(@teacher)
+  = link_to "Cancel", teacher_tasks_path(@teacher), class: 'btn btn-default'

@@ -7,15 +7,16 @@
     = csrf_meta_tags
 
 %body
-  = image_tag 'test.jpg'
   
-  .top_header
-    - if current_user
-      = "Welcome #{current_user.name.titleize}."
-      = link_to "logout", logout_url
+  = render 'shared/nav'
 
-  - flash.each do |name, msg|
-    = content_tag :div, msg, class: name
-  
-  = yield
+  .container#main
+    .content
+      - flash.each do |name, msg|
+        - alert_class = 'success'
+        - alert_class = 'danger' if %(alert error).include?(name.to_s)
+        - alert_class = 'success' if name.to_s == 'notice'
+        = content_tag :div, msg, class: "alert alert-#{alert_class}"
+      
+      = yield
 

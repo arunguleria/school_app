@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       if @user.save
         redirect_to signin_url, notice: "Your accout has ben created.please logged in to continue"
       else
-        flash[:alert] = "please provide correct information and try again"
+        flash[:alert] = "Please provide correct information and try again"
       end
     end
   end
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
         session[:current_user] = @user
         redirect_to teachers_path, notice: "you have successfully logged in "
       else
-        flash[:alert] = "sorry invalid email and password! try again"
+        flash[:alert] = "Sorry invalid email and password! try again"
       end
     end
   end
