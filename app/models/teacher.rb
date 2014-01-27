@@ -1,6 +1,7 @@
 class Teacher < ActiveRecord::Base
+    
   
-  
+  has_many :attachments, as: :attachable, dependent: :destroy
   
   has_many :photos, as: :photographable
 
@@ -10,7 +11,7 @@ class Teacher < ActiveRecord::Base
   has_one :locker, dependent: :destroy
   has_many :tasks, dependent: :destroy, order: "tasks.created_at desc"
 
-
+  
   validates :salutation, presence: true
 
   validates :first_name,
@@ -36,20 +37,23 @@ class Teacher < ActiveRecord::Base
   # validates :password, confirmation: true
   
   def name
-    "#{salutation} #{first_name} #{last_name}"
+   " #{first_name} #{last_name}"
   end
-
-
-=begin EXAMPLE  
-  before_validate :set_salutation
+  
+  
+# "#{salutation}
+# EXAMPLE  
+=begin before_validate :set_salutation
   def set_salutation
   end  
 =end
 
-  before_validation do
-    print "Before Validate Called \n"    
+ before_validation do
+    print "Before Validate Called \n" 
+       
     self.salutation = "Mr." if self.salutation.to_s.empty? 
   end
+
 
   after_validation do
     print "After Validate Called \n" 

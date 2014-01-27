@@ -1,0 +1,9 @@
+= simple_form_for([@teacher, @attachment]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :attachable, as: :hidden, input_html: {value: 'Teacher'}
+    = f.input :asset, as: :file
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-success'

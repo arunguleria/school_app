@@ -9,6 +9,11 @@ School::Application.routes.draw do
   resources :teachers do 
     resources :tasks
     resource :locker
+    resources :attachments do
+      member do
+        post :download
+      end
+    end
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

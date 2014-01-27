@@ -28,7 +28,8 @@ class TeachersController < ApplicationController
   def create
     @teacher = Teacher.new(teacher_params)
     if @teacher.save
-      redirect_to teacher_url(@teacher)
+
+       redirect_to teacher_url(@teacher), notice: "Successfully created teacher."
     else
       flash.now[:alert] = "Please correctly fill the form"
       render action: :new

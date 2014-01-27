@@ -40,6 +40,9 @@ gem "twitter-bootstrap-rails"
 
 gem 'simple_form', github: 'zlx/simple_form_bootstrap3'
 
+gem 'paperclip', '~> 3.0'
+gem "font-awesome-rails"
+gem 'kaminari'    #for pagination
 
 gem 'thin'
 

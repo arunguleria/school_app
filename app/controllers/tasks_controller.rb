@@ -8,6 +8,7 @@ class TasksController < ApplicationController
   
   def get_teacher
     @teacher = Teacher.find(params[:teacher_id])
+    access_denied unless @teacher
   end
   
   def task_params
@@ -16,9 +17,7 @@ class TasksController < ApplicationController
   
   def get_task
     @task = @teacher.tasks.where(id: params[:id]).first
-    if @task.nil?
-      redirect_to teacher_tasks_path,  alert: "sorry we couldn't find this task"
-    end
+    access_denied unless @task
   end
   
   public

@@ -11,8 +11,8 @@
     %td=  @task.priority 
  
 %hr/
-= link_to "Edit", edit_teacher_task_url(@teacher, @task), class: 'btn btn-primary' 
-= link_to "delete", teacher_task_url(@teacher, @task), method: :delete, data: {confirm: "Are you sure to destroy this record? "}, class: 'btn btn-danger'
+= link_to fa_icon('edit') + " Edit", edit_teacher_task_url(@teacher, @task), class: 'btn btn-primary' 
+= link_to fa_icon('trash-o') + " delete", teacher_task_url(@teacher, @task), method: :delete, data: {confirm: "Are you sure to destroy this record? "}, class: 'btn btn-danger'
  
 = link_to "view all tasks", teacher_tasks_url, class: 'btn btn-info' 
 = link_to "Teacher detail", teacher_url(@teacher), class: 'btn btn-info'

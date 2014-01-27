@@ -10,6 +10,12 @@ class ApplicationController < ActionController::Base
   end
   
   
+  def access_denied
+    flash[:error] = "Sorry, you are not authorized to visit the requested page."
+    redirect_to root_url
+    return
+  end
+  
   private
   
   def login_check

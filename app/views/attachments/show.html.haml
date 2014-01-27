@@ -1,0 +1,16 @@
+
+.image_box
+  .image
+    .well
+      - if @attachment.is_photo?
+        = image_tag @attachment.asset.url(:main)
+      - else        
+        = fa_icon('file')
+        = @attachment.asset_file_name
+
+
+= link_to fa_icon('angle-left') + ' Back', teacher_attachments_path(@teacher), class: 'btn btn-default'
+= link_to fa_icon('download') + ' Download', download_teacher_attachment_path(@teacher, @attachment), class: 'btn btn-info', method: :post
+= link_to fa_icon('trash-o') + ' Delete this Photo', teacher_attachment_path(@teacher, @attachment),
+  method: :delete, data: {confirm: "Are you sure you want to delete this Photo?"}, class: 'btn btn-danger'
+
