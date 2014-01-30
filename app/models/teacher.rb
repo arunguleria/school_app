@@ -9,7 +9,7 @@ class Teacher < ActiveRecord::Base
   has_many :subjects, through: :subjects_teachers_maps
 
   has_one :locker, dependent: :destroy
-  has_many :tasks, dependent: :destroy, order: "tasks.created_at desc"
+  has_many :tasks, -> {order("tasks.created_at desc")}, dependent: :destroy
 
   
   validates :salutation, presence: true
@@ -37,7 +37,7 @@ class Teacher < ActiveRecord::Base
   # validates :password, confirmation: true
   
   def name
-   " #{first_name} #{last_name}"
+   "#{salutation} #{first_name} #{last_name}"
   end
   
   
@@ -49,29 +49,29 @@ class Teacher < ActiveRecord::Base
 =end
 
  before_validation do
-    print "Before Validate Called \n" 
+    # print "Before Validate Called \n" 
        
     self.salutation = "Mr." if self.salutation.to_s.empty? 
   end
 
 
   after_validation do
-    print "After Validate Called \n" 
+    # print "After Validate Called \n" 
   end
 
   
   before_create do
-    print "Before Create Called \n"
+    # print "Before Create Called \n"
   end
   before_save do
-    print "Before Save Called \n"
+    # print "Before Save Called \n"
   end
 
   after_create do
-    print "After Create Called \n"
+    # print "After Create Called \n"
   end
   after_save do
-    print "After Save Called \n"
+    # print "After Save Called \n"
   end
 
 end

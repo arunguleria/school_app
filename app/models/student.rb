@@ -14,7 +14,7 @@ class Student < ActiveRecord::Base
      uniqueness: true
   
   def name
-    " #{first_name} #{last_name}"
+    "#{first_name} #{last_name}"
   end
 
 end

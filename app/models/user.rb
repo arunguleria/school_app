@@ -1,10 +1,8 @@
-class User < ActiveRecord::Base
-  
-  
+class User < ActiveRecord::Base  
   
   validates :name, presence: true
   validates :email,
-     format: {with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/, message: ' please provide a valid email'},
+     format: {with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/, message: 'please provide a valid email'},
      uniqueness: true
   
   validates :password, presence: true, confirmation: true
@@ -21,12 +19,13 @@ class User < ActiveRecord::Base
     end
   end
   
-  after_validation :hash_password!
+  before_save :hash_password!
   
   private
   
   def hash_password!
-    self.password = User.hashed_password(password)
+    return if password.blank?
+    self.password = User.hashed_password(password.to_s)
   end
   
 end

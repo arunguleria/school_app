@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  lab_number: MyString
-  lab_type: MyString
+  lab_number: P123
+  lab_type: physics
   student_id: 1
 
 two:
-  lab_number: MyString
-  lab_type: MyString
+  lab_number: C123
+  lab_type: chemistry
   student_id: 1

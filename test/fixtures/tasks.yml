@@ -4,12 +4,35 @@ one:
   title: MyString
   description: MyText
   is_completed: false
-  priority: MyString
+  priority: High
   teacher_id: 1
 
 two:
   title: MyString
   description: MyText
-  is_completed: false
-  priority: MyString
+  is_completed: true
+  priority: High
   teacher_id: 1
+
+three:
+  title: MyString
+  description: MyText
+  is_completed: false
+  priority: Medium
+  teacher_id: 2
+
+four:
+  title: MyString
+  description: MyText
+  is_completed: true
+  priority: Medium
+  teacher_id: 2
+  
+
+five:
+  title: MyString
+  description: MyText
+  is_completed: false
+  priority: Low
+  teacher_id: 3
+
