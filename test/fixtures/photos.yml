@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  filename: MyString
+  filename: My_photo
   descirption: MyText
-  file_type: MyString
+  file_type: JPEG
   photographable_type: MyString
   photographable_id: 1
 
