@@ -29,5 +29,6 @@ class SubjectsTeachersMapTest < ActiveSupport::TestCase
     assert_not teacher.errors[:teacher_id].empty?
     assert_equal 1, teacher.errors[:teacher_id].size
     assert_equal "has already been taken", teacher.errors[:teacher_id].first
+    assert teacher.errors[:subject].empty?
   end
 end
