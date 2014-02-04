@@ -15,7 +15,7 @@ class LockerTest < ActiveSupport::TestCase
   end
   
   test "should save the locker" do
-    locker = Locker.new(locker_number: "1", compartment: "A", teacher_id: "1")
+    locker = Locker.new(locker_number: "1", compartment: "A", teacher_id: "3")
     assert locker.valid?
     assert locker.errors[:lab_number].empty?
     assert locker.errors[:compartment].empty?
@@ -26,12 +26,42 @@ class LockerTest < ActiveSupport::TestCase
   test "should check for unique locker number" do
   
     existing_locker = lockers(:one)   
-    locker = Locker.new(locker_number: existing_locker.locker_number, compartment: "A", teacher_id: 1)
+    locker = Locker.new(locker_number: existing_locker.locker_number, compartment: "C", 
+    teacher_id: 3)
     assert_not locker.valid?
     assert_not locker.save
-    assert_not locker.errors[:locker_number].empty?
-   
-    assert_equal 1, locker.errors[:locker_number].size
-    assert_equal "has already been taken", locker.errors[:locker_number].first
+    locker.valid?
+    p locker.errors.inspect
+    assert_not locker.errors[:compartment].empty?
+    assert_equal 1, locker.errors[:compartment].size
+    assert_equal "same locker number exists for this compartment", locker.errors[:compartment].first
+    assert_equal locker.errors[:teacher_id].empty?
+    
+  end
+  
+  test "should check for unique teacher id" do
+  
+    existing_locker = lockers(:one)   
+    locker = Locker.new(locker_number: existing_locker.locker_number, compartment: "C", 
+    teacher_id:  existing_locker.teacher_id)
+    assert_not locker.valid?
+    assert_not locker.save
+    assert_not locker.errors[:teacher_id].empty?
+    assert_equal 1, locker.errors[:teacher_id].size
+    assert_equal "has already been taken", locker.errors[:teacher_id].first
+  end
+  
+  # testing association with teacher
+  
+  test "should featch the associated teacher" do
+    locker = lockers(:one)
+    assert_equal Teacher, locker.teacher.class
+  end
+  
+  test "should delete locker but not affect the teacher" do
+    locker = lockers(:one)
+    teacher = locker.teacher
+    assert locker.destroy
+    assert Teacher.where(:id => teacher.id).first
   end
 end

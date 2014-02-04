@@ -19,6 +19,22 @@ class PhotoTest < ActiveSupport::TestCase
     assert photo.errors[:filename].empty?
     assert photo.errors[:file_type].empty?
     assert photo.save
-    
+  end
+  
+  # testing association with teacher
+  
+  test "should fetch the associated teacher" do
+    photo = photos(:one)
+    assert_equal Teacher, photo.photographable.class
+  end
+  
+  test "should delete photo but should not affect the interface object" do
+    photo = photos(:one)
+    photographable = photo.photographable
+    assert photo.destroy
+    assert photographable.reload
   end
 end
+
+
+

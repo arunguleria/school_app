@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  locker_number: MyString
-  compartment: MyString
+  locker_number: L21
+  compartment: A
   teacher_id: 1
 
 two:
-  locker_number: MyString
-  compartment: MyString
-  teacher_id: 1
+  locker_number: L20
+  compartment: B
+  teacher_id: 2
+  
+

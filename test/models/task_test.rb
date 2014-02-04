@@ -78,6 +78,21 @@ class TaskTest < ActiveSupport::TestCase
     assert_equal Task.incompleted.count, incompleted_count
   end
   
+  # testing association with teacher
+  
+  test "should featch the associated teacher" do
+    task = tasks(:one)
+    assert_equal Teacher, task.teacher.class
+  end
+  
+  test "should delete task but should not affect the teacher" do
+    task = tasks(:one)
+    teacher = task.teacher
+    assert task.destroy
+    assert Teacher.where(:id => teacher.id).first
+  end
+  
+  
 end
 
 

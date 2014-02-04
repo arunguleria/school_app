@@ -12,4 +12,12 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  
+  
+  def login_as(user_key)
+    user = users(user_key)
+    @request.session[:current_user] = user    
+  end
+  
+  
 end

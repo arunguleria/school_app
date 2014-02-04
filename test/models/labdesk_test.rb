@@ -36,6 +36,18 @@ class LabdeskTest < ActiveSupport::TestCase
     assert labdesk.errors[:student].empty?
   end
   
+  test "should fetch the associated student" do
+    labdesk = labdesks(:one)
+    assert_equal Student, labdesk.student.class
+  end
+  
+  test "should delete labdesk but should not affect the student" do
+    labdesk = labdesks(:one)
+    student = labdesk.student
+    assert labdesk.destroy
+    assert Student.where(:id => student.id).first
+  end
+  
 end
 
 

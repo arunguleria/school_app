@@ -3,7 +3,7 @@ class Teacher < ActiveRecord::Base
   
   has_many :attachments, as: :attachable, dependent: :destroy
   
-  has_many :photos, as: :photographable
+  has_many :photos, as: :photographable, dependent: :destroy
 
   has_many :subjects_teachers_maps, dependent: :destroy
   has_many :subjects, through: :subjects_teachers_maps

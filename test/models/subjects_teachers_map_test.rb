@@ -31,4 +31,32 @@ class SubjectsTeachersMapTest < ActiveSupport::TestCase
     assert_equal "has already been taken", teacher.errors[:teacher_id].first
     assert teacher.errors[:subject].empty?
   end
+  
+  # testing association
+  
+  test "should fetch the associated subject" do
+    subject = subjects_teachers_maps(:one)
+    assert_equal Teacher, subject.teacher.class
+  end
+  
+  test "should delete subject but should not affect the teacher" do
+    subject = subjects_teachers_maps(:one)
+    teacher = subject.teacher
+    assert subject.destroy
+    assert Teacher.where(:id => teacher.id).first
+  end
+  
+  test "should fetch the associated teacher" do
+    teacher = subjects_teachers_maps(:one)
+    assert_equal Subject, teacher.subject.class
+  end
+  
+  test "should delete teacher but should not affect the subject" do
+    teacher = subjects_teachers_maps(:one)
+    subject = teacher.subject
+    assert teacher.destroy
+    assert Subject.where(:id => subject.id).first
+  end
+  
+  
 end

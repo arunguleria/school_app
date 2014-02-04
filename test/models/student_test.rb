@@ -62,4 +62,36 @@ class StudentTest < ActiveSupport::TestCase
     student = students(:one)
     assert_equal "#{student.first_name} #{student.last_name}", student.name
   end
+  
+  #teting associations
+  
+  test "should fetch labdesks associated with the student" do
+    student = students(:one)
+    labdesks = student.labdesks
+    assert_not labdesks.empty? # we have two labdesks in fixtures for the student one.    
+  end
+  
+  test "should create a new labdesk" do
+    student = students(:one)
+    labdesks_count = student.labdesks.count
+    labdesk = student.labdesks.build(lab_number: "l23", lab_type: Labdesk::TYPES.first)
+    assert labdesk.save
+    assert_equal labdesks_count+1, student.labdesks.count
+  end
+  
+  test "should delete an existing labdesk related to the student" do
+    student = students(:one)
+    labdesks_count = student.labdesks.count
+    labdesk = student.labdesks.first
+    assert labdesk.destroy
+    assert_equal labdesks_count-1, student.labdesks.count
+  end
+    
+  test "should delete all associated labdesks when the student gets deleted" do
+    student = students(:one)
+    assert_not Labdesk.where(student_id: student.id).empty?
+    assert student.destroy
+    assert Labdesk.where(student_id: student.id).empty?
+  end
+  
 end
