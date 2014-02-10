@@ -9,7 +9,7 @@ class TasksControllerTest < ActionController::TestCase
   test "should fetch tasks" do
     login_as(:one)
     teacher = teachers(:one)
-    get :teacher_tasks_url(teacher)
+    get :index, id: teacher.tasks
     assert_response :success
   end
   
