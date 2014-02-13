@@ -2,6 +2,6 @@
   = f.input :title
   = f.input :description, as: :text
   = f.select :priority, Task::PRIORITIES
-  = f.submit "Save this article", class: 'btn btn-success'
+  = f.submit "Save this task", class: 'btn btn-success'
   or
   = link_to "Cancel", teacher_tasks_path(@teacher), class: 'btn btn-default'

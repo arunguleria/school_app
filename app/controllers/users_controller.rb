@@ -35,9 +35,9 @@ class UsersController < ApplicationController
       @user = User.authenticate(user_params)
       if @user.is_a?(User)
         session[:current_user] = @user
-        redirect_to teachers_path, notice: "you have successfully logged in "
+        redirect_to teachers_path, notice: "You have successfully logged in."
       else
-        flash[:alert] = "Sorry invalid email and password! try again"
+        flash[:alert] = "Invalid email or password. Please try again!"
       end
     end
   end
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   
   def logout
     reset_session
-    redirect_to signin_url, notice: "you have successfully logged out"
+    redirect_to signin_url, notice: "You have been successfully logged out."
   end
   
 end

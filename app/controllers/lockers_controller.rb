@@ -32,8 +32,8 @@ class LockersController < ApplicationController
   
   def update
     if @locker.update_attributes(locker_params)
-      # redirect_to teacher_locker_url(@teacher, @locker), notice: "successfully updated...."
-      redirect_to [@teacher, @locker], notice: "successfully updated...."
+       redirect_to teacher_locker_url(@teacher), notice: "Successfully updated"
+      #redirect_to [@teacher, @locker], notice: "Successfully updated...."
     else
       flash.now[:alert] = "please correctly fill the fields"
       render action: :edit
@@ -44,7 +44,7 @@ class LockersController < ApplicationController
     @locker = Locker.new(locker_params)
     @locker.teacher = @teacher
     if @locker.save
-      redirect_to teacher_locker_url(@teacher, @locker)
+      redirect_to teacher_locker_url(@teacher)
     else
       flash.now[:alert] = "please correctly fill the fields"
       render action: :new
@@ -57,7 +57,7 @@ class LockersController < ApplicationController
   
   def destroy
     @locker.destroy
-    redirect_to teacher_path(@teacher), notice: "succefully deleted the locker"
+    redirect_to teacher_path(@teacher), notice: "Successfully deleted the locker"
   end
   
 end

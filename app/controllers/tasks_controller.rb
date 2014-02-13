@@ -36,9 +36,9 @@ class TasksController < ApplicationController
   def update
     if @task.update_attributes(task_params)
       # redirect_to teacher_task_url(@teacher, @task), notice: "successfully updated...."
-      redirect_to [@teacher, @task], notice: "successfully updated...."
+      redirect_to [@teacher, @task], notice: "Successfully updated"
     else
-      flash.now[:alert] = "please correctly fill the fields"
+      flash.now[:alert] = "Please correctly fill the fields"
       render action: :edit
     end
   end
@@ -49,14 +49,14 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to teacher_task_url(@teacher, @task)
     else
-      flash.now[:alert] = "please correctly fill the fields"
+      flash.now[:alert] = "Please correctly fill the fields."
       render action: :new
     end
   end
   
   def destroy
     @task.destroy
-    redirect_to teacher_tasks_path, notice: "succefully deleted the task"
+    redirect_to teacher_tasks_path, notice: "Successfully deleted the task"
   end
 
 

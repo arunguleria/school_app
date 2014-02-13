@@ -3,6 +3,6 @@
 = simple_form_for @locker, :url => teacher_locker_path(@teacher, @locker)  do |f|
   = f.input :locker_number
   = f.input :compartment
-  = f.submit "Save this article", class: 'btn btn-success'
+  = f.submit "Save this locker", class: 'btn btn-success'
   or
   = link_to fa_icon('angle-left') + " Cancel", teacher_path(@teacher), class: 'btn btn-default'

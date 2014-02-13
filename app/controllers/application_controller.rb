@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   
   def login_check
     unless current_user
-      redirect_to signin_url, alert: "please login to continue"
+      redirect_to signin_url, alert: "Please login to continue!"
     end
   end
   

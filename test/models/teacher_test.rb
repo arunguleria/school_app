@@ -202,7 +202,8 @@ class TeacherTest < ActiveSupport::TestCase
   test "should create a new attachment" do
     teacher = teachers(:one)
     attachment_count = teacher.attachments.count
-    teacher.attachments << Attachment.new(asset_file_name: "my_photo.jpeg", asset_content_type: "image/jpeg", asset_file_size: 1000)
+    test_file = File.open(File.join(Rails.root, 'test', 'fixtures', 'files', 'logo.jpg'), 'r')
+    teacher.attachments << Attachment.new(:asset => test_file)
     assert_equal attachment_count+1, teacher.attachments.count
   end
   
