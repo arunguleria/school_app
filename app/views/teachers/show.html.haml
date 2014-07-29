@@ -1,0 +1,29 @@
+%h1 Teaher information
+%table.table.table-striped
+  %tr
+    %th firstname
+    %th lastname
+    %th email
+    %th age
+    %th gender
+
+  %tr
+    %td= @teacher.first_name 
+    %td= @teacher.last_name 
+    %td
+      = fa_icon('envelope')
+      =  @teacher.email 
+    %td=  @teacher.age 
+    %td= @teacher.gender 
+ 
+%hr/
+= link_to fa_icon('edit') + " Edit", edit_teacher_url(@teacher), class: 'btn btn-default' 
+= link_to fa_icon('trash-o') + " delete", teacher_url(@teacher), method: :delete, data: {confirm: "Are you sure to destroy this record? "}, class: 'btn btn-danger' 
+= link_to fa_icon('tasks') + " Tasks", teacher_tasks_url(@teacher), class: 'btn btn-info' 
+= link_to fa_icon('lock') + " Locker", teacher_locker_url(@teacher), class: 'btn btn-info'
+
+= link_to fa_icon('paperclip') + " Attachments", teacher_attachments_url(@teacher), class: 'btn btn-warning'
+
+%hr/
+
+= link_to fa_icon('angle-left') + " View All Teachers", teachers_url, class: 'btn btn-default' 

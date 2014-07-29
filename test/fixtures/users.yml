@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# password for all fixture users is: password1234
+
+one:
+  name: admin
+  email: admin@gmail.com
+  password: b9c950640e1b3740e98acb93e669c65766f6670dd1609ba91ff41052ba48c6f3
+
+two:
+  name: admin2
+  email: admin2@gmail.com
+  password: b9c950640e1b3740e98acb93e669c65766f6670dd1609ba91ff41052ba48c6f3

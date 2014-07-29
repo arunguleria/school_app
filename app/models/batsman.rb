@@ -1,0 +1,2 @@
+class Batsman < Cricketer
+end

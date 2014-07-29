@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %title School App
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+
+%body
+  
+  = render 'shared/nav'
+
+  .container#main
+    .content
+      - flash.each do |name, msg|
+        - alert_class = 'success'
+        - alert_class = 'danger' if %(alert error).include?(name.to_s)
+        - alert_class = 'success' if name.to_s == 'notice'
+        = content_tag :div, msg, class: "alert alert-#{alert_class}"
+      
+      = yield
+

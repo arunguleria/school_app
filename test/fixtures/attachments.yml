@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  asset_file_name: My_photo 
+  asset_content_type: JPEG
+  asset_file_size: 1000
+  attachable_type: Teacher
+  attachable_id: 1
+
+two:
+  asset_file_name: My_photo 
+  asset_content_type: JPEG
+  asset_file_size: 1000
+  attachable_type: Teacher
+  attachable_id: 2
+

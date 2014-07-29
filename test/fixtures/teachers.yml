@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  first_name: Teacher1
+  last_name: One
+  email: teacher1@gmail.com
+  salutation: "Mr."
+
+two:
+  id: 2
+  first_name: Teacher2
+  last_name: Two
+  email: teacher2@gmail.com
+  salutation: "Mr."
+  
+three:
+  id: 3
+  first_name: Teacher3
+  last_name: Three
+  email: teacher3@gmail.com
+  salutation: "Mr."
+  

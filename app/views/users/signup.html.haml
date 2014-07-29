@@ -1,0 +1,11 @@
+%h1 SignUp for a New Account
+= simple_form_for @user, url: signup_url do |f|
+  = f.input :name, placeholder: "Username"
+  = f.input :email, placeholder: "@gmail.com"
+  = f.input :password, placeholder: "Password"
+  = f.input :password_confirmation, placeholder: "Password"
+  
+  .form-actions
+    = f.submit "Signup", class: 'btn btn-primary'
+    or
+    = link_to "Login to your account", signin_url, class: 'btn btn-default'

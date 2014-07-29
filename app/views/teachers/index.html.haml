@@ -1,0 +1,18 @@
+%h1 Teachers
+
+
+= link_to fa_icon('plus') + " Create New Teacher", new_teacher_path, class: 'btn btn-primary'
+
+.author
+  %table.table.table-striped
+    %tr
+      %th Name
+      %th Email
+      %th age
+      %th gender
+      %th edit
+
+    - @teachers.each do |teacher|
+      = render partial: 'teacher_row', locals: {teacher: teacher}
+
+

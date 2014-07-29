@@ -1,0 +1,9 @@
+%tr
+  %td= link_to teacher.name.titleize, teacher_url(teacher)
+  %td
+    = fa_icon('envelope')
+    = mail_to teacher.email, teacher.email
+  %td= teacher.age
+  %td= teacher.gender
+  %td= link_to "Show", teacher_url(teacher), class: 'btn btn-default btn-mini'
+

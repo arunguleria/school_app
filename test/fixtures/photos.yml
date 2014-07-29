@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  filename: My_photo
+  descirption: MyText
+  file_type: JPEG
+  photographable_type: Teacher
+  photographable_id: 1
+
+two:
+  filename: MyString
+  descirption: MyText
+  file_type: MyString
+  photographable_type: Student
+  photographable_id: 2

@@ -1,0 +1,17 @@
+= nav_bar :fixed => :top, :brand => "School App", :responsive => true do
+ 
+  = menu_group do
+    
+    = menu_item "Home", root_path
+    = menu_divider
+    
+    - if current_user  
+      = drop_down "Teachers" do
+        = menu_item "View All Teachers", teachers_url
+        = menu_item "Create Teacher", new_teacher_url          
+           
+           
+  = menu_group pull: :right do
+    - if current_user
+      = menu_item "Logout", logout_url
+

@@ -1,0 +1,14 @@
+%h1 Locker information
+%table.table.table-striped
+  %tr
+    %th lockernumber
+    %th compartment
+  %tr
+    %td
+      = @locker.locker_number
+    %td
+      = @locker.compartment
+%hr/
+= link_to fa_icon('edit') + " Edit", edit_teacher_locker_url(@teacher), class: 'btn btn-primary'
+= link_to fa_icon('trash-o') + " delete", teacher_locker_url(@teacher), method: :delete, data: {confirm: "Are you sure to destroy this record? "}, class: 'btn btn-danger'
+= link_to  fa_icon('angle-left') + " cancel", teacher_path(@teacher), class: 'btn btn-default'

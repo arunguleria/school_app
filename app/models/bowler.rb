@@ -1,0 +1,2 @@
+class Bowler < Cricketer
+end

@@ -1,0 +1,2 @@
+class Striker < Footballer
+end

@@ -1,0 +1,7 @@
+%h1 Edit Locker
+= simple_form_for @locker, :url => teacher_locker_path(@teacher, @locker), :method => :put do |f|
+  = f.input :locker_number
+  = f.input :compartment
+  = f.submit "Save this Locker", class: 'btn btn-success'
+  or
+  = link_to fa_icon('angle-left')+ " Cancel", teacher_locker_path(@teacher), class: 'btn btn-default'

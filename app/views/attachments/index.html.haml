@@ -1,0 +1,28 @@
+%h1 Listing attachments
+
+%table.table.table-striped
+  %tr
+    %th Photo 
+    %th Filename
+    %th
+
+  - @attachments.each do |attachment|
+    %tr
+      %td
+        - if attachment.is_photo?
+          = image_tag attachment.asset.url(:thumb)
+        - else
+          = fa_icon('file')
+          = attachment.asset_content_type
+      %td= attachment.asset_file_name
+      %td
+        = link_to 'Show', [@teacher, attachment], class: 'btn btn-default'
+        = link_to fa_icon('download') + ' Download', download_teacher_attachment_path(@teacher, attachment), class: 'btn btn-info',
+          method: :post
+        = link_to fa_icon('trash-o') + ' Destroy', [@teacher, attachment], :method => :delete, :data => { :confirm => 'Are you sure?' },
+          class: 'btn btn-danger'
+
+%br
+
+= link_to fa_icon('upload') + ' New Attachment', new_teacher_attachment_path(@teacher), class: 'btn btn-primary'
+= link_to 'View Teacher', teacher_url(@teacher), class: 'btn btn-info'
