@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/zlx/simple_form_bootstrap3.git
+  remote: https://github.com/zlx/simple_form_bootstrap3.git
   revision: 9965928d9c7aeb3775fce223bc27b5fba146fba8
   specs:
     simple_form (3.0.0.rc)
@@ -91,18 +91,20 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
-    mini_portile2 (2.3.0)
+    mini_portile2 (2.8.5)
     minitest (4.7.5)
     multi_json (1.13.1)
     mysql2 (0.5.2)
-    nokogiri (1.8.5)
-      mini_portile2 (~> 2.3.0)
+    nokogiri (1.16.0)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
     paperclip (3.5.4)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
     polyglot (0.3.5)
+    racc (1.7.3)
     rack (1.5.5)
     rack-test (0.6.3)
       rack (>= 1.0)
